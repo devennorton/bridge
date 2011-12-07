@@ -92,7 +92,7 @@ Player = function(params) {
 		hand: {
 			get: function(){ return _hand }
 		}
-	}
+	});
 	this.play(v, s){
 		var i = _hand.indexOf({suit: s, val: v});
 		if (i >= 0){
