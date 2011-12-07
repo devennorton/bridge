@@ -105,15 +105,15 @@ Player = function(params) {
 Deck = function(params) {
 	var _cards = [];
 	for (i in CARDS.SUITS){
-		for {j in CARDS.VALUES){
+		for (j in CARDS.VALUES){
 			cards.push({suit: CARDS.SUITS[i], val: CARDS.VALUES[j]});
 		}
 	}
 	this.deal = function(n){
-		n > this.cards.length && return null;
+		n > _cards.length && return null;
 		var hand = [];
 		for(var i = 0; i < n; i++){
-			hand.push(this.cards.splice(Math.random() * this.cards.length, 1)
+			hand.push(_cards.splice(Math.random() * this.cards.length, 1)
 		}
 	}
 }
