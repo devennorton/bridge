@@ -106,7 +106,7 @@ Deck = function(params) {
 	var _cards = [];
 	for (i in CARDS.SUITS){
 		for (j in CARDS.VALUES){
-			cards.push({suit: CARDS.SUITS[i], val: CARDS.VALUES[j]});
+			_cards.push({suit: CARDS.SUITS[i], val: CARDS.VALUES[j]});
 		}
 	}
 	this.deal = function(n){
