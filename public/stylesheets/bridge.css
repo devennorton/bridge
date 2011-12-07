@@ -1,0 +1,52 @@
+.card {
+  cursor:pointer;
+  float:left;
+  width:88px;
+  height:138px;
+  background-color:#fefef0;
+  border-radius: 4px;
+  box-shadow: 1px 1px 4px #333333;
+  display:inline;
+  -webkit-animation: flipin 1s;
+}
+.card:hover {
+  -webkit-animation: hover .2s;
+}
+
+.rank {
+  font-size:32;
+  padding:0px;
+  margin:0px;
+}
+
+.suit {
+  position:absolute;
+  top:38px;
+  font-size:32;
+  padding:0px;
+  margin:0px;
+}
+
+.redsuit {
+  color:red;
+}
+
+@-webkit-keyframes hover {
+  
+  100% {top:5px;}
+}
+
+@-webkit-keyframes fanright {
+  0%   {left:10px;}
+  50%  {left:500px;}
+  100% {left:35px;}
+}
+
+@-webkit-keyframes fanleft {
+  0%   {left:35px;}
+  100% {left:10px;}
+}
+@-webkit-keyframes flipin {
+  0%   {-webkit-transform:rotateY(90deg);}
+  100% {-webkit-transform:rotateY(0deg);}
+}

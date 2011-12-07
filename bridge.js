@@ -78,7 +78,7 @@ io.sockets.on('connection', function (socket) {
 });
 
 //Player Class
-Player : function(params) {
+Player = function(params) {
 	var _position = params.position;
 	var _hand = params.hand;
 	var _played = [];
@@ -103,7 +103,7 @@ Player : function(params) {
 }
 
 //Deck Class
-Deck : function(params) {
+Deck = function(params) {
 	var _cards = [];
 	for (i in CARDS.SUITS){
 		for {j in CARDS.VALUES){
