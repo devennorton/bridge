@@ -1,5 +1,3 @@
-var D = 
-
 var socket = io.connect(location.host);
 console.log('got past connecting');
 socket.on('player', function(player){
