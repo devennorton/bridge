@@ -113,8 +113,7 @@ Deck = function(params) {
 		if (n > _cards.length) return null;
 		var hand = [];
 		for(var i = 0; i < n; i++){
-			var index = Math.floor(Math.random() * _cards.length);
-			hand.push(_cards.splice(index, 1);
+			hand.push(_cards.splice(Math.floor(Math.random() * _cards.length), 1));
 		}
 		return hand;
 	}
