@@ -110,11 +110,12 @@ Deck = function(params) {
 		}
 	}
 	this.deal = function(n){
-		n > _cards.length && return null;
+		if (n > _cards.length) return null;
 		var hand = [];
 		for(var i = 0; i < n; i++){
-			hand.push(_cards.splice(Math.random() * this.cards.length, 1)
+			hand.push(_cards.splice(Math.random() * this.cards.length, 1);
 		}
+		return hand;
 	}
 }
 
