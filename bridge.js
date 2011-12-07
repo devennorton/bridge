@@ -93,13 +93,12 @@ Player = function(params) {
 			get: function(){ return _hand }
 		}
 	});
-	this.play(v, s){
+	this.play = function(v, s){
 		var i = _hand.indexOf({suit: s, val: v});
 		if (i >= 0){
 			_played.concat(_hand.splice(i, 1));
 		}
 	}
-	this.socket.on.bid
 }
 
 //Deck Class
@@ -110,7 +109,7 @@ Deck = function(params) {
 			cards.push({suit: CARDS.SUITS[i], val: CARDS.VALUES[j]});
 		}
 	}
-	this.deal = funtion(n){
+	this.deal = function(n){
 		n > this.cards.length && return null;
 		var hand = [];
 		for(var i = 0; i < n; i++){
