@@ -58,19 +58,19 @@ io.sockets.on('connection', function (socket) {
 		case 1:
 			players.north = new Player({position : 'North', hand : deck.deal(13), socket: socket}); 
 			console.log(players.north);
-			socket.emit('player', players.north);
+			socket.json.emit('player', {position: players.north.position, hand: players.north.hand});
 			break;
 		case 2:
 			players.south = new Player({position : 'South', hand : deck.deal(13), socket: socket}); 
-			socket.emit('player', players.south);
+			socket.emit('player', {position: players.south.position, hand: players.south.hand});
 			break;
 		case 3:
 			players.east = new Player({position : 'East', hand : deck.deal(13), socket: socket}); 
-			socket.emit('player', players.east);
+			socket.emit('player', {position: players.east.position, hand: players.east.hand});
 			break;
 		case 4:
 			players.west = new Player({position : 'West', hand : deck.deal(13), socket: socket}); 
-			socket.emit('player', players.west);
+			socket.emit('player', {position: players.east.position, hand: players.east.hand});
 			break;
 		default:
 			socket.emit('specator', {north: players.north.hand, south: players.south.hand, east: players.east.hand, west: players.west.hand});
