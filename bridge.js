@@ -57,6 +57,7 @@ io.sockets.on('connection', function (socket) {
 	switch(next) {
 		case 1:
 			players.north = new Player({position : 'North', hand : deck.deal(13), socket: socket}); 
+			console.log(players.north.player);
 			socket.emit('player', players.north.player);
 			break;
 		case 2:
