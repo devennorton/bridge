@@ -2,7 +2,7 @@ var socket = io.connect(location.host);
 console.log('got past connecting');
 
 $( function(){
-	socket.on('message', function(player){
+	socket.on('player', function(player){
 		console.log("got player message");
 		console.log(player);
 		for(i in player.hand){

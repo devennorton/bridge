@@ -41,7 +41,7 @@ console.log(routes.game);
 
 app.get('/', routes.index);
 
-app.get('/game/', routes.game);
+app.get('/game', routes.game);
 
 var players = {}
 
@@ -57,7 +57,7 @@ io.sockets.on('connection', function (socket) {
 	switch(next) {
 		case 1:
 			players.north = new Player({position : 'North', hand : deck.deal(13), socket: socket}); 
-			socket.emit('message', players[0].player);
+			socket.emit('player', players[0].player);
 			break;
 		case 2:
 			players.south = new Player({position : 'South', hand : deck.deal(13), socket: socket}); 
