@@ -58,7 +58,7 @@ function drawHand(hand, locator){
 }
 
 //Player Class
-Player = function(params) {
+var Player = function(params) {
 	var _position = params.position;
 	var _hand = params.hand;
 	var _played = [];
