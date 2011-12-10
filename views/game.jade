@@ -1,4 +1,4 @@
-!!!
+﻿!!! 5
 html
 	head
 		title= title
@@ -15,8 +15,14 @@ html
 		#container
 			#chat
 			#game
-				#hand
-				#lefthand
-				#righthand
-				#opphand
+				#hand.hand
+				#lefthand.hand.vert
+				#righthand.hand.vert
+				#opphand.hand
 				#bidbox
+					- var suits = [ '♣', '♦', '♥', '♠' ] 
+					- for (i = 0; i < 28; i++)
+						a.bid(id='#{i}' href='#')= Math.ceil(i / 4) + suits[i % 4] 
+					a#28.bid(href='#') pass
+					a#29.bid(href='#') double
+					a#30.bid(href='#') redouble
