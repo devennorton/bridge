@@ -1,6 +1,4 @@
-﻿require('Player.js')
-
-var CARDS = {
+﻿var CARDS = {
 	SUITS: [ '♣', '♦', '♥', '♠' ],
 	VALUES: [ '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A' ]
 };
@@ -9,10 +7,11 @@ var socket = io.connect(location.host);
 console.log('got past connecting');
 
 $( function(){
-	var game = new Game();
+	var game;
 	socket.on('player', function(player){
 		console.log("got player message");
 		console.log(player);
+		game = new Game(player)
 		drawhand(player.hand, '#hand');
 	});
 	socket.on('spectator', function(hands){
@@ -35,12 +34,11 @@ var BiddingBox = function(){
 	}
 }
 
-var Game = function(){
+var Game = function(params){
 	var _biddingBox = new BiddingBox();
-	var _players = {}, _position
+	var _players = {params.posistion: new Player(params)}, _position = params.position, _dealer = params.dealer;
 	
 	this.addPlayer = function(player){
-		_position = player.position;
 		_players[player.position] = new Player(player)
 	}
 }
@@ -56,5 +54,27 @@ function drawHand(hand, locator){
 			CARDS.VALUES[rank]  + '</div><div class="suit">' + CARDS.SUITS[suit] + 
 			'</div></div>');
 		
+	}
+}
+
+//Player Class
+Player = function(params) {
+	var _position = params.position;
+	var _hand = params.hand;
+	var _played = [];
+	var _bids = [];
+	Object.defineProperties( this, {
+		position: {
+			get: function(){ return _position }
+		},
+		hand: {
+			get: function(){ return _hand }
+		}
+	});
+	this.play = function(card){
+		var i = _hand.indexOf(card);
+		if (i >= 0){
+			_played.append(_hand.splice(i, 1));
+		}
 	}
 }
