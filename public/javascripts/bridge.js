@@ -1,4 +1,4 @@
-var socket = io.connect(location.host);
+﻿var socket = io.connect(location.host);
 console.log('got past connecting');
 
 $( function(){
@@ -6,7 +6,12 @@ $( function(){
 		console.log("got player message");
 		console.log(player);
 		for(i in player.hand){
-			$('#hand').append('<div class="card"><div class="rank">' + 
+			var redsuit = '';
+			
+			if(player.hand[i].suit == '♦' || player.hand.suit == '♥')
+				redsuit = ' redsuit';
+			
+			$('#hand').append('<div class="card' + redsuit + '"><div class="rank">' + 
 				player.hand[i].val + '</div><div class="suit">' + player.hand[i].suit + 
 				'</div></div>');
 			
