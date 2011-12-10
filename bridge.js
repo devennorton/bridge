@@ -43,7 +43,7 @@ app.get('/', routes.index);
 
 app.get('/game', routes.game);
 
-var players = {}
+var players = {}, next = 1;
 
 // socket.io
 
@@ -52,7 +52,6 @@ io.sockets.on('connection', function (socket) {
 	socket.join('game');
 	console.log(socket.id);
 	
-	var next = 1;
 	
 	switch(next) {
 		case 1:
@@ -115,7 +114,7 @@ Deck = function(params) {
 		for(var i = 0; i < n; i++){
 			hand.push(_cards.splice(Math.floor(Math.random() * _cards.length), 1)[0]);
 		}
-		return hand.sort().reverse();
+		return hand.sort(function(a, b){ return b - a;});
 	}
 }
 
