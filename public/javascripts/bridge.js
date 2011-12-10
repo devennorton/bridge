@@ -16,7 +16,7 @@ $( function(){
 			if(suit == 1 || suit == 2)
 				redsuit = ' redsuit';
 			
-			$('#hand').append('<div id="'player.hand[i]'" class="card' + redsuit + '"><div class="rank">' + 
+			$('#hand').append('<div id="' + player.hand[i] + '" class="card' + redsuit + '"><div class="rank">' + 
 				CARDS.VALUES[rank]  + '</div><div class="suit">' + CARDS.SUITS[suit] + 
 				'</div></div>');
 			
