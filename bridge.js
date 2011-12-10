@@ -57,7 +57,7 @@ io.sockets.on('connection', function (socket) {
 	switch(next) {
 		case 1:
 			players.north = new Player({position : 'North', hand : deck.deal(13), socket: socket}); 
-			console.log(players.north.hand);
+			console.log("connection number" + next);
 			socket.json.emit('player', {position: players.north.position, hand: players.north.hand});
 			next++;
 			break;
@@ -87,7 +87,7 @@ Player = function(params) {
 	var _position = params.position;
 	var _hand = params.hand;
 	var _played = [];
-	var _bids = null;
+	var _bids = [];
 	this.socket = params.socket;
 	
 	Object.defineProperties( this, {
@@ -98,10 +98,10 @@ Player = function(params) {
 			get: function(){ return _hand }
 		}
 	});
-	this.play = function(v, s){
-		var i = _hand.indexOf({suit: s, val: v});
+	this.play = function(card){
+		var i = _hand.indexOf(card);
 		if (i >= 0){
-			_played.concat(_hand.splice(i, 1));
+			_played.append(_hand.splice(i, 1));
 		}
 	}
 }
@@ -113,13 +113,15 @@ Deck = function(params) {
 		if (n > _cards.length) return null;
 		var hand = [];
 		for(var i = 0; i < n; i++){
-			hand.push(_cards.splice(Math.floor(Math.random() * _cards.length), 1)[0]);
+			card = _cards.splice(Math.floor(Math.random() * _cards.length), 1)[0]);
+			console.log('dealing: ' + card);
+			hand.push(card);
 		}
 		return hand.sort.reverse;
 	}
 }
 
-//
+//all the cards (a convenient constant)
 var CARDS = {
 	SUITS: [ '♣', '♦', '♥', '♠' ],
 	VALUES: [ '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A' ]
