@@ -7,9 +7,18 @@ $( function(){
 		console.log(player);
 		for(i in player.hand){
 			$('#hand').append('<div class="card"><div class="rank">' + 
-				player.hand[i].rank + '</div><div class="suit">' + player.hand[i].suit + 
+				player.hand[i].val + '</div><div class="suit">' + player.hand[i].suit + 
 				'</div></div>');
 			
 		}
+	});
+	socket.on('bid', function(bid){
+		
+	});
+	socket.on('play', function(play){
+		
+	});
+	socket.on('dummy', function(dummy){
+		
 	});
 });
