@@ -12,7 +12,7 @@ $( function(){
 		console.log(player);
 		for(i in player.hand){
 			var redsuit = '';
-			var suit =  math.floor(player.hand[i] / 13), rank = player.hand[i] % 13;
+			var suit =  Math.floor(player.hand[i] / 13), rank = player.hand[i] % 13;
 			if(suit == 1 || suit == 2)
 				redsuit = ' redsuit';
 			
