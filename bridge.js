@@ -113,11 +113,9 @@ Deck = function(params) {
 		if (n > _cards.length) return null;
 		var hand = [];
 		for(var i = 0; i < n; i++){
-			card = _cards.splice(Math.floor(Math.random() * _cards.length), 1)[0];
-			console.log('dealing: ' + card);
-			hand.push(card);
+			hand.push(_cards.splice(Math.floor(Math.random() * _cards.length), 1)[0]hand.push();
 		}
-		return hand.sort.reverse;
+		return hand.sort().reverse();
 	}
 }
 
